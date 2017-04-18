@@ -11,4 +11,5 @@ Requirements:
 * virtualenv vchart
 * source vchart/bin/activate
 * pip install flask
+* copy conf/vchart.conf to /etc/nginx/conf.d/
 * misc
