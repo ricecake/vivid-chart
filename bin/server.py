@@ -15,7 +15,7 @@ app = Flask(__name__)
 # set to data storage directory
 # long term, should move to S3 instead
 # of file storage
-fileBase   = "/home/vchart/file_cache"
+fileBase   = "/home/vchart/file_cache/static"
 
 # host portion of static file url
 staticHost = ""
