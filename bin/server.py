@@ -62,7 +62,7 @@ def makeChart(chartType):
     renderer(data, outputPath)
 
 # and return a redirect to what it produced
-    return redirect("/".join([staticHost, staticBase, "charts", chartType, chartID]));
+    return redirect("/".join([staticHost, staticBase, "charts", chartType, chartID+'.png']));
 
 
 def renderDefaultChart(chartData, outputPath):
@@ -136,7 +136,6 @@ def visionChart(chartData, outputPath):
                 z.append(zTemp+0.0000001)
                 r.append(rTemp)
                 theta.append(thetaTemp)        
-        print(z,r)
         # Generate a regular grid to interpolate the data.
         xi = np.linspace(xmin, xmax, nx)
         yi = np.linspace(ymin, ymax, ny)
@@ -145,7 +144,6 @@ def visionChart(chartData, outputPath):
         # Interpolate using delaunay triangularization 
         zi = mlab.griddata(x,y,z,xi,yi)
         left, bottom, width, height= [-2+(eye*1.1), 0, 2, 1.4]
-        print(len(zi))    
         # Set up cartesian axes
         ax  = plt.axes([left, bottom, width, height])
 
@@ -218,4 +216,3 @@ def visionChart(chartData, outputPath):
 
 if __name__ == "__main__":
     app.run()
-
