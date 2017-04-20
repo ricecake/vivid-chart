@@ -20,7 +20,7 @@ import json
 import math
 
 # Webserver framework
-from flask import Flask, redirect, request
+from flask import Flask, redirect, request, jsonify
 
 app = Flask(__name__)
 
@@ -61,9 +61,8 @@ def makeChart(chartType):
 # call the renderer...
     renderer(data, outputPath)
 
-# and return a redirect to what it produced
-    return redirect("/".join([staticHost, staticBase, "charts", chartType, chartID+'.png']));
-
+# and return json blob indicating image url
+    return jsonify({"image_path":"/".join([staticHost, staticBase, "charts", chartType, chartID+'.png'])});
 
 def renderDefaultChart(chartData, outputPath):
     file = open(outputPath, 'wb')
