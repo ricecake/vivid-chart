@@ -55,9 +55,7 @@ def makeChart(chartType):
 
 def renderDefaultChart(chartData, outputPath):
     file = open(outputPath, 'wb')
-    file.write("Hello World of vivid charts!\n\n")
-    pprint(chartData, file)
-
+    file.write("Hello World of vivid charts!\n\n".encode('utf-8'))
 
 
 def ensurePath(path):
